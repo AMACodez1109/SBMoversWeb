@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Barbara Movers • Reliable Movers, Every Time</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Truck Cursor */
+        .truck-cursor {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2248%22 viewBox=%220 0 64 48%22><g fill=%22none%22 stroke=%22%23000%22 stroke-width=%222.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect x=%2226%22 y=%228%22 width=%2228%22 height=%2222%22 rx=%222%22 fill=%22white%22/><line x1=%2230%22 y1=%228%22 x2=%2230%22 y2=%2230%22 stroke-width=%221.5%22/><line x1=%2234%22 y1=%228%22 x2=%2234%22 y2=%2230%22 stroke-width=%221.5%22 opacity=%220.3%22/><line x1=%2238%22 y1=%228%22 x2=%2238%22 y2=%2230%22 stroke-width=%221.5%22 opacity=%220.3%22/><line x1=%2242%22 y1=%228%22 x2=%2242%22 y2=%2230%22 stroke-width=%221.5%22 opacity=%220.3%22/><line x1=%2246%22 y1=%228%22 x2=%2246%22 y2=%2230%22 stroke-width=%221.5%22 opacity=%220.3%22/><line x1=%2250%22 y1=%228%22 x2=%2250%22 y2=%2230%22 stroke-width=%221.5%22 opacity=%220.3%22/><path d=%22M8 14 L20 14 L26 20 L26 30 L8 30 Z%22 fill=%22white%22/><rect x=%2211%22 y=%2217%22 width=%227%22 height=%226%22 rx=%221%22 fill=%22%23cfe8ff%22 stroke-width=%221.5%22/><line x1=%2220%22 y1=%2214%22 x2=%2220%22 y2=%2230%22 stroke-width=%221.5%22/><g fill=%22white%22 stroke=%22%23000%22><circle cx=%2218%22 cy=%2236%22 r=%225%22/><circle cx=%2238%22 cy=%2236%22 r=%225%22/><circle cx=%2218%22 cy=%2236%22 r=%222%22 fill=%22%23333%22/><circle cx=%2238%22 cy=%2236%22 r=%222%22 fill=%22%23333%22/></g><rect x=%224%22 y=%2226%22 width=%224%22 height=%226%22 rx=%221%22 fill=%22%23ddd%22/><g><circle cx=%226%22 cy=%2228%22 r=%223%22 fill=%22%23FFEB3B%22 stroke=%22%23FFC107%22 stroke-width=%221%22/><circle cx=%226%22 cy=%2228%22 r=%225%22 fill=%22%23FFEB3B%22 opacity=%220.35%22/></g></g></svg>') 8 24, auto;
+}
+    </style>
+</head>
+<body class="truck-cursor bg-white text-gray-900">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="SBMoversLogo.png" alt="SB Movers Logo" class="w-13 h-12 rounded-xl flex items-center justify-center"/>
+                    <!-- <div class="w-11 h-11 bg-red-600 rounded-2xl flex items-center justify-center text-white text-3xl">🚚</div> -->
+                    <span id="logo" class="logo-font text-2xl font-semibold text-red-600">Santa Barbara Movers</span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#services" id="nav-services">Services</a>
+                    <a href="#about" id="nav-about">About</a>
+                    <a href="#testimonials" id="nav-testimonials">Reviews</a>
+                    <a href="#contact" id="nav-contact">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="flex border border-gray-300 rounded-3xl overflow-hidden text-sm font-medium">
+                        <button onclick="switchLanguage('en')" id="btn-en" class="px-4 py-2 bg-red-600 text-white">EN</button>
+                        <button onclick="switchLanguage('es')" id="btn-es" class="px-4 py-2">ES</button>
+                    </div>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+                            class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-2xl font-semibold">
+                        <span id="nav-quote">Get Quote</span>
+                    </button>
+                    <button id="hamburger" class="md:hidden text-3xl">☰</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t py-6">
+            <div class="px-6 flex flex-col gap-5 text-lg">
+                <a href="#services" id="mob-services" onclick="toggleMobileMenu()">Services</a>
+                <a href="#about" id="mob-about" onclick="toggleMobileMenu()">About</a>
+                <a href="#testimonials" id="mob-testimonials" onclick="toggleMobileMenu()">Reviews</a>
+                <a href="#contact" id="mob-contact" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="h-screen flex items-center text-white"
+            style="background: linear-gradient(rgba(230,57,57,0.85), rgba(230,57,57,0.75)), url('https://picsum.photos/id/1015/2000/1200') center/cover;">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <h1 id="hero-title" class="text-6xl md:text-7xl font-semibold leading-none tracking-tighter logo-font mb-6">
+                    AFFORDABLE,<br>FAST & FRIENDLY!
+                </h1>
+                <p id="hero-subtitle" class="text-2xl text-white/90 mb-10">
+                    📆 Available 7 Days a Week 
+                </p>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+                        class="px-12 py-6 bg-white text-red-600 rounded-3xl font-semibold text-xl">
+                    <span id="hero-btn">Request Free Quote</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+        <!-- ABOUT -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <img src="SBMoversLogo.png" class="rounded-3xl shadow-2xl" alt="Moving team">
+                <div>
+                    <h2 id="about-title" class="text-5xl font-semibold logo-font mb-6">Need Help Moving?</h2>
+                    <p id="about-desc" class="text-xl text-gray-600">
+                        Local Santa Barbara team known for being on time, careful and professional. 
+                        We handle your furniture and belongings with care, no damage, just reliable help when you need it.
+                        My team and I make moving easy, affordable, and stress free. Whether you're moving a home, or
+                        just need help with heavy furniture, we've got you covered! 24 hour notice is always appreciated.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 id="services-title" class="text-5xl font-semibold text-center logo-font mb-16">Moving Made Simple</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8">
+                    <div class="text-5xl mb-6">📦</div>
+                    <h3 id="s1-title" class="text-2xl font-semibold mb-3">What You Get:</h3>
+                    <p id="s1-desc" class="text-gray-600">
+                        2 Strong Movers & A Fully Equipped Truck: Dollies, Straps, Blankets, Tools for Disassembly / Assembly. No Hidden Fees!
+                    </p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border-2 border-red-600">
+                    <div class="text-5xl mb-6">🏠</div>
+                    <h3 id="s2-title" class="text-2xl font-semibold mb-3">Local Moves</h3>
+                    <p id="s2-desc" class="text-gray-600">
+                        In the Santa Barbara, Goleta, Carpinteria, Isla Vista area. Loading & Unloading: U-Haul,
+                        PODS, Storage Units, etc. Furniture Moving & Assembly.
+                    </p>
+                </div>
+                <div class="bg-white rounded-3xl p-8">
+                    <div class="text-5xl mb-6">🎓</div>
+                    <h3 id="s3-title" class="text-2xl font-semibold mb-3">Student Discount</h3>
+                    <p id="s3-desc" class="text-gray-600">
+                        UCSB & SBCC students save 10% with valid student ID!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-24 bg-red-600 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 id="testimonials-title" class="text-5xl font-semibold text-center logo-font mb-16">What Our Customers Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p id="t1" class="italic mb-6">"They moved our entire 4-bedroom house without a single scratch. The truck even arrived early!"</p>
+                    <div>
+                        <div class="font-semibold">Sarah M.</div>
+                        <div class="text-sm text-red-200">Carpinteria → Isla Vista</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p id="t2" class="italic mb-6">"Best moving experience we've ever had. Professional, friendly, and careful with our antique furniture."</p>
+                    <div>
+                        <div class="font-semibold">Michael Chen</div>
+                        <div class="text-sm text-red-200">Santa Barbara</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 backdrop-blur-lg p-8 rounded-3xl">
+                    <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+                    <p id="t3" class="italic mb-6">"The team was incredibly efficient. They even helped us unpack a few boxes at the new place. Highly recommend!"</p>
+                    <div>
+                        <div class="font-semibold">Jamila Washington</div>
+                        <div class="text-sm text-red-200">Goleta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / QUOTE -->
+    <section id="contact" class="py-28 bg-white">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 id="contact-title" class="text-5xl font-semibold logo-font mb-4">Request a Quote</h2>
+            <p id="contact-subtitle" class="text-gray-600 mb-12">
+                My name is Alex, Call or Text today at (805) 403-0202 or fill the form and your email client will open with all details pre-filled.
+            </p>
+
+            <form id="quoteForm" class="space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" id="fname" placeholder="First Name" required class="px-8 py-6 rounded-3xl border border-gray-300 text-lg">
+                    <input type="text" id="lname" placeholder="Last Name" required class="px-8 py-6 rounded-3xl border border-gray-300 text-lg">
+                </div>
+                <input type="tel" id="phone" placeholder="Phone Number" required class="w-full px-8 py-6 rounded-3xl border border-gray-300 text-lg">
+                <input type="email" id="email" placeholder="Email Address" required class="w-full px-8 py-6 rounded-3xl border border-gray-300 text-lg">
+                <textarea id="details" rows="5" placeholder="Move details (from/to, date, size...)" class="w-full px-8 py-6 rounded-3xl border border-gray-300 text-lg"></textarea>
+
+                <button type="submit" class="w-full py-8 text-2xl font-semibold bg-red-600 hover:bg-red-700 text-white rounded-3xl">
+                    SEND REQUEST →
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // Translations
+        const translations = {
+            en: {
+                logo: "Santa Barbara Movers",
+                navServices: "Services",
+                navAbout: "About",
+                navTestimonials: "Reviews",
+                navContact: "Contact",
+                navQuote: "Get Quote",
+                heroTitle: "AFFORDABLE,<br>FAST & FRIENDLY!",
+                heroSubtitle: "📆 Available 7 Days a Week ",
+                heroBtn: "Request Free Quote",
+                servicesTitle: "Moving Made Simple",
+                s1Title: "What You Get:",
+                s1Desc: "2 Strong Movers & A Fully Equipped Truck: Dollies, Straps, Blankets, Tools for Disassembly / Assembly. No Hidden Fees!",
+                s2Title: "Local Moves",
+                s2Desc: "In the Santa Barbara, Goleta, Carpinteria, Isla Vista area. Loading & Unloading: U-Haul, PODS, Storage Units, etc. Furniture Moving & Assembly.",
+                s3Title: "Student Discount",
+                s3Desc: "UCSB & SBCC students save 10% with valid student ID!",
+                aboutTitle: "Need Help Moving?",
+                aboutDesc: "Local Santa Barbara team known for being on time, careful and professional. We handle your furniture and belongings with care, no damage, just reliable help when you need it. My team and I make moving easy, affordable, and stress free. Whether you're moving a home, or just need help with heavy furniture, we've got you covered! 24 hour notice is always appreciated.",
+                testimonialsTitle: "What Our Customers Say",
+                t1: "They moved our entire 4-bedroom house without a single scratch. The truck even arrived early!",
+                t2: "Best moving experience we've ever had. Professional, friendly, and careful with our antique furniture.",
+                t3: "The team was incredibly efficient. They even helped us unpack a few boxes at the new place. Highly recommend!",
+                contactTitle: "Request a Quote",
+                contactSubtitle: "My name is Alex, Call or Text today at (805) 403-0202 or fill the form and your email client will open with all details pre-filled.",
+                fname: "First Name",
+                lname: "Last Name",
+                phone: "Phone Number",
+                email: "Email Address",
+                details: "Move details (from/to, date, size...)"
+            },
+            es: {
+                logo: "Empresa de mudanzas en Santa Bárbara",
+                navServices: "Servicios",
+                navAbout: "Nosotros",
+                navTestimonials: "Opiniones",
+                navContact: "Contacto",
+                navQuote: "Obtener Cotización",
+                heroTitle: "ASEQUIBLE, <br>RAPIDO Y AMIGABLE!",
+                heroSubtitle: "📆 Disponible Los 7 días De La Semana",
+                heroBtn: "Solicitar Cotización Gratis",
+                servicesTitle: "Mudanzas Hechas Fáciles",
+                s1Title: "Lo Que Obtienes:",
+                s1Desc: "2 operarios fuertes y un camión totalmente equipado: carretillas, correas, mantas y herramientas para desmontaje y montaje. ¡Sin cargos ocultos!",
+                s2Title: "Mudanzas Locales",
+                s2Desc: "En el área de Santa Bárbara, Goleta, Carpinteria e Isla Vista. Carga y descarga: U-Haul, PODS, unidades de almacenamiento, etc. Traslado y montaje de muebles.",
+                s3Title: "Descuento Para Estudiantes",
+                s3Desc: "¡Los estudiantes de UCSB y SBCC ahorran un 10 % con una identificación de estudiante válida!",
+                aboutTitle: "¿Necesitas Ayuda Para Mudarte?",
+                aboutDesc: "Somos un equipo local de Santa Bárbara conocido por nuestra puntualidad, cuidado y profesionalismo. Manejamos sus muebles y pertenencias con esmero para evitar daños; simplemente ofrecemos ayuda confiable cuando la necesita. Mi equipo y yo hacemos que la mudanza sea fácil, económica y sin estrés. Ya sea que se mude de casa o simplemente necesite ayuda con muebles pesados, ¡podemos ayudarle! Siempre agradecemos recibir un aviso con 24 horas de antelación.",
+                testimonialsTitle: "Lo que dicen nuestros clientes",
+                t1: "Mudaron toda nuestra casa de 4 habitaciones sin un solo rasguño. ¡El camión incluso llegó temprano!",
+                t2: "La mejor experiencia de mudanza que hemos tenido. Profesionales, amables y muy cuidadosos con nuestros muebles antiguos.",
+                t3: "El equipo fue increíblemente eficiente. Incluso nos ayudaron a desempacar algunas cajas en el nuevo lugar. ¡Altamente recomendados!",
+                contactTitle: "Solicitar Cotización",
+                contactSubtitle: "Me llamo Alex. Llama o envía un mensaje de texto hoy mismo al (805) 403-0202, o completa el formulario y se abrirá tu aplicación de correo electrónico con todos los datos ya rellenados.",
+                fname: "Nombre",
+                lname: "Apellido",
+                phone: "Número de Teléfono",
+                email: "Correo Electrónico",
+                details: "Detalles de la mudanza (origen/destino, fecha, tamaño...)"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const t = translations[lang];
+
+            document.getElementById('logo').textContent = t.logo;
+            document.getElementById('nav-services').textContent = t.navServices;
+            document.getElementById('nav-about').textContent = t.navAbout;
+            document.getElementById('nav-testimonials').textContent = t.navTestimonials;
+            document.getElementById('nav-contact').textContent = t.navContact;
+            document.getElementById('nav-quote').textContent = t.navQuote;
+
+            document.getElementById('mob-services').textContent = t.navServices;
+            document.getElementById('mob-about').textContent = t.navAbout;
+            document.getElementById('mob-testimonials').textContent = t.navTestimonials;
+            document.getElementById('mob-contact').textContent = t.navContact;
+
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+            document.getElementById('hero-btn').textContent = t.heroBtn;
+
+            document.getElementById('services-title').textContent = t.servicesTitle;
+            document.getElementById('s1-title').textContent = t.s1Title;
+            document.getElementById('s1-desc').textContent = t.s1Desc;
+            document.getElementById('s2-title').textContent = t.s2Title;
+            document.getElementById('s2-desc').textContent = t.s2Desc;
+            document.getElementById('s3-title').textContent = t.s3Title;
+            document.getElementById('s3-desc').textContent = t.s3Desc;
+
+            document.getElementById('about-title').textContent = t.aboutTitle;
+            document.getElementById('about-desc').textContent = t.aboutDesc;
+
+            document.getElementById('testimonials-title').textContent = t.testimonialsTitle;
+            document.getElementById('t1').textContent = t.t1;
+            document.getElementById('t2').textContent = t.t2;
+            document.getElementById('t3').textContent = t.t3;
+
+            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('contact-subtitle').textContent = t.contactSubtitle;
+            document.getElementById('fname').placeholder = t.fname;
+            document.getElementById('lname').placeholder = t.lname;
+            document.getElementById('phone').placeholder = t.phone;
+            document.getElementById('email').placeholder = t.email;
+            document.getElementById('details').placeholder = t.details;
+
+            // Active button style
+            document.getElementById('btn-en').classList.toggle('bg-red-600', lang === 'en');
+            document.getElementById('btn-en').classList.toggle('text-white', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('bg-red-600', lang === 'es');
+            document.getElementById('btn-es').classList.toggle('text-white', lang === 'es');
+        }
+
+        // Quote Form - mailto
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const details = document.getElementById('details').value || "No additional details.";
+
+            const subject = encodeURIComponent(`Moving Quote Request - ${fname} ${lname}`);
+            const body = encodeURIComponent(
+                `Name: ${fname} ${lname}\n` +
+                `Phone: ${phone}\n` +
+                `Email: ${email}\n\n` +
+                `Move Details:\n${details}`
+            );
+
+            // CHANGE THIS TO YOUR REAL EMAIL
+            window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+
+            alert("✅ Email client opened with your quote request!");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
